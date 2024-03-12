@@ -9,6 +9,7 @@ namespace Store.Model
     public class products
     {
         public int Товар_ID { get; set; }
+        public string Название {  get; set; }
         public int Количество { get; set; }
         public decimal Цена { get; set; }
         public int Рейтинг { get; set; }

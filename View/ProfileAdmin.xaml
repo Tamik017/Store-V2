@@ -9,20 +9,20 @@
     <Grid>
         <Label Content="Мой профиль" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top"/>
         <Button Content="Товары" HorizontalAlignment="Left" Margin="720,36,0,0" 
-                VerticalAlignment="Top" Click="ProductBtn" Command="{Binding ProductCommand}"
-                Width="70" Height="30" Background="White"/>
+                VerticalAlignment="Top" Command="{Binding ProductAdminCommand}"
+                Width="70" Height="30" Background="White"/> <!--Click="ProductBtn"-->
         <Label Content="Места работы" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding PVZ}" HorizontalAlignment="Left" Margin="219,134,0,0" VerticalAlignment="Top"/>
         <Label Content="Количество заказов на моих ПВЗ" HorizontalAlignment="Left" Margin="30,199,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Current}" HorizontalAlignment="Left" Margin="289,199,0,0" VerticalAlignment="Top"/>
         <Button Content="Выйти из аккаунта" HorizontalAlignment="Center" Margin="0,377,0,0" 
-                VerticalAlignment="Top" Click="LogoutBtn" Command="{Binding LogoutCommand}"
-                Width="120" Height="30" Background="White"/>
+                VerticalAlignment="Top" Command="{Binding LogoutCommand}"
+                Width="120" Height="30" Background="White"/> <!--Click="LogoutBtn"-->
         <Button Content="Статистика" HorizontalAlignment="Left" Margin="720,78,0,0" 
-                VerticalAlignment="Top" Click="StatisticsBtn"  Command="{Binding StatisticCommand}"
-                Width="70" Height="30" Background="White"/>
+                VerticalAlignment="Top" Command="{Binding StatisticCommand}"
+                Width="70" Height="30" Background="White"/> <!--Click="StatisticsBtn"-->
         <Button Content="Сотрудник" HorizontalAlignment="Left" Margin="720,119,0,0" 
-                VerticalAlignment="Top" Click="ProfileSotrudnikBtn"
-                Width="70" Height="30" Background="White" />
+                VerticalAlignment="Top" Command="{Binding SotrudnikProfile}"
+                Width="70" Height="30" Background="White" /> <!--Click="ProfileSotrudnikBtn"-->
     </Grid>
 </Window>

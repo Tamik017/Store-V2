@@ -7,8 +7,6 @@
         xmlns:viewmodel="clr-namespace:Store.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-<<<<<<< HEAD
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -26,57 +24,7 @@
                    Grid.ColumnSpan="3" />
         <Button Grid.Column="1" Content="Вход" HorizontalAlignment="Left" Margin="60,10,0,0" 
                     Grid.Row="1" VerticalAlignment="Top" Width="150" Height="50" FontSize="16"
-                    Click="Log_Click" Command="{Binding LogNavCommand}"/>
-        
-        <Button Grid.Column="1" Content="Регистрация" HorizontalAlignment="Left" FontSize="14"
-                    Margin="60,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Height="50"
-                    Click="Reg_Click" Command="{Binding RegNavCommand}"/>
-        
-    </Grid>
-=======
-    <Window.DataContext>
-        <viewmodel:MainVM/>
-    </Window.DataContext>
-    <Border Background="White" >
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-            <Grid Grid.Column="4">
-                <Button x:Name="profileButton" Command="{Binding ProfileButtonCommand}"
-                        Margin="20 10" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <!-- Define a circular button -->
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="LightGray" Width="50" Height="50" CornerRadius="25">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <TextBlock Text="👤" FontSize="24" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center"/>
-                </Button>
+                    Command="{Binding LogNavCommand}"/> <!--Click="Log_Click"-->
 
-                <Popup x:Name="popup" IsOpen="False">
-                    <!-- Add your additional buttons here -->
-                    <StackPanel Background="White" Orientation="Vertical">
-                        <Button Content="Профиль"/>
-                        <Button Content="Статистика"/>
-                        <Button Content="Редактировать"/>
-                    </StackPanel>
-                </Popup>
-            </Grid>
         </Grid>
-    </Border>
->>>>>>> 6db6e7f3ead8ff0dda23b1e2c59ebba2dab146d7
 </Window>

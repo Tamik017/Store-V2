@@ -23,21 +23,14 @@ namespace Store.View
         public Login()
         {
             InitializeComponent();
-            //DataContext = new MainVM();
+            DataContext = new LoginVM();
         }
 
-        private void Loginbtn_Click(object sender, RoutedEventArgs e)
-        {
-            Products ProductWindow = new Products();
-            ProductWindow.Show();
-            this.Close();
-        }
-
-        private void Registrationbtn_Click(object sender, RoutedEventArgs e)
-        {
-            Registration RegistrationWindow = new Registration();
-            RegistrationWindow.Show();
-            this.Close();
-        }
+        //private void Loginbtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Products ProductWindow = new Products();
+        //    ProductWindow.Show();
+        //    this.Close();
+        //}
     }
 }

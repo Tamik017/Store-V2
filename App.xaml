@@ -4,10 +4,6 @@
              xmlns:local="clr-namespace:Store"
              StartupUri="/View/MainWindow.xaml">
     <Application.Resources>
-<<<<<<< HEAD
-
-=======
-         
->>>>>>> 6db6e7f3ead8ff0dda23b1e2c59ebba2dab146d7
+        
     </Application.Resources>
 </Application>

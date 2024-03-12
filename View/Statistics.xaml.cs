@@ -23,21 +23,21 @@ namespace Store.View
         public Statistics()
         {
             InitializeComponent();
-            //DataContext = new MainVM();
+            DataContext = new StatisticsVM();
         }
 
-        private void Profil(object sender, RoutedEventArgs e)
-        {
-            ProfileAdmin AAWindow = new ProfileAdmin();
-            AAWindow.Show();
-            this.Close();
-        }
+        //private void Profil(object sender, RoutedEventArgs e)
+        //{
+        //    ProfileAdmin AAWindow = new ProfileAdmin();
+        //    AAWindow.Show();
+        //    this.Close();
+        //}
 
-        private void Prosucts(object sender, RoutedEventArgs e)
-        {
-            ProductsAdmin ProductsAdminWindow = new ProductsAdmin();
-            ProductsAdminWindow.Show();
-            this.Close();
-        }
+        //private void Prosucts(object sender, RoutedEventArgs e)
+        //{
+        //    ProductsAdmin ProductsAdminWindow = new ProductsAdmin();
+        //    ProductsAdminWindow.Show();
+        //    this.Close();
+        //}
     }
 }

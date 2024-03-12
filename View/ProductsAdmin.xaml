@@ -37,8 +37,8 @@
                 VerticalAlignment="Top" Command="{Binding FilterCommand}"
                 Width="100" Height="30" Background="White" />
         <Button Content="Я" HorizontalAlignment="Left" Margin="728,24,0,0" VerticalAlignment="Top" 
-                Height="52" Width="52" Click="ButtonProfile" Command="{Binding ProfileCommand}" 
-                FontSize="30" Background="White">
+                Height="52" Width="52" Command="{Binding ProfileAdminCommand}" 
+                FontSize="30" Background="White"> <!--Click="ButtonProfile"-->
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="30" BorderBrush="{TemplateBinding BorderBrush}" 

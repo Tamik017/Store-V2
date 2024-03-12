@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,14 +23,14 @@ namespace Store.View
         public Products()
         {
             InitializeComponent();
-            //DataContext = new MainVM();
+            DataContext = new ProductsVM();
         }
 
-        private void ButtonProfile(object sender, RoutedEventArgs e)
-        {
-            Profile ProfileWindow = new Profile();
-            ProfileWindow.Show();
-            this.Close();
-        }
+        //private void ButtonProfile(object sender, RoutedEventArgs e)
+        //{
+        //    Profile ProfileWindow = new Profile();
+        //    ProfileWindow.Show();
+        //    this.Close();
+        //}
     }
 }

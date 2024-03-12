@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 ﻿using Store.View;
 using Store.ViewModel;
 using System.Text;
-=======
-﻿using System.Text;
->>>>>>> 6db6e7f3ead8ff0dda23b1e2c59ebba2dab146d7
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -25,24 +21,16 @@ namespace Store
         public MainWindow()
         {
             InitializeComponent();
-<<<<<<< HEAD
             //DataContext = new MainVM();
+            DataContext = new MainWindowVM();
         }
 
-        private void Log_Click(object sender, RoutedEventArgs e)
-        {
-            Login LoginWindow = new Login();
-            LoginWindow.Show();
-            this.Close();
-        }
+        //private void Log_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Login LoginWindow = new Login();
+        //    LoginWindow.Show();
+        //    this.Close();
+        //}
 
-        private void Reg_Click(object sender, RoutedEventArgs e)
-        {
-            Registration RegistrationWindow = new Registration();
-            RegistrationWindow.Show();
-            this.Close();
-=======
->>>>>>> 6db6e7f3ead8ff0dda23b1e2c59ebba2dab146d7
-        }
     }
 }
