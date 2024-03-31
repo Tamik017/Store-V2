@@ -10,11 +10,11 @@
         <DataGrid Margin="0,100,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" MinWidth="60" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Навание товара" IsReadOnly="True" CanUserResize="False" Width="250" Binding="{Binding}"/>
-                <DataGridTextColumn Header="Цена" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding}"/>
-                <DataGridTextColumn Header="Адрес" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding}" />
-                <DataGridTextColumn Header="ПВЗ" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding}"/>
-                <DataGridTextColumn Header="Количество" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding}"/>
+                <DataGridTextColumn Header="Навание товара" IsReadOnly="True" CanUserResize="False" Width="250" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Цена" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Адрес" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }" />
+                <DataGridTextColumn Header="ПВЗ" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Количество" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox Name="TxtSearch" 

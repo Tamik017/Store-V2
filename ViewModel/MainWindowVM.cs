@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Store.ViewModel
 {
@@ -14,7 +15,8 @@ namespace Store.ViewModel
         public RelayCommand LogNavCommand { get; }
         public MainWindowVM()
         {
-            LogNavCommand = new RelayCommand(parameter => loginNav());  
+            LogNavCommand = new RelayCommand(parameter => loginNav());
+            //myComboBox.SelectedIndex = 1;
         }
 
         public void loginNav()

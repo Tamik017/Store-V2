@@ -26,5 +26,13 @@
                     Grid.Row="1" VerticalAlignment="Top" Width="150" Height="50" FontSize="16"
                     Command="{Binding LogNavCommand}"/> <!--Click="Log_Click"-->
 
-        </Grid>
+        <ComboBox x:Name="combobox1">
+            <ComboBoxItem>
+                <TextBlock>dsadds</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock>Fsdafe</TextBlock>
+            </ComboBoxItem>
+        </ComboBox>    
+    </Grid>
 </Window>
