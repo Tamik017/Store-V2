@@ -16,9 +16,6 @@ namespace Store.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        protected virtual void Dispose()
-        {
-
-        }
     }
+    
 }

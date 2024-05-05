@@ -1,16 +1,26 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Store.Model
 {
-    public class OrderElements
+    [Table("Элементы_заказа")]
+    public  class OrderElements
     {
-        public int Элемент_заказа_ID { get; set; }
-        public int Количество { get; set; }
-        public int Заказ_ID { get; set; }
+        [Key]
+        public int Элементы_заказа_ID { get; set; }
+        public int Количесвто {  get; set; }
+        public int Заказ_ID {  get; set; }
+        [ForeignKey(nameof(Заказ_ID))]
+        public Orders Заказ {  get; set; }
+        
         public int Товар_ID { get; set; }
+        [ForeignKey(nameof(Товар_ID))]
+        public Products Товар { get; set; }
     }
 }

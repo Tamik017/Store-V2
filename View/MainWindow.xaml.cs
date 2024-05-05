@@ -1,4 +1,5 @@
-﻿using Store.View;
+﻿using Store.Model;
+using Store.View;
 using Store.ViewModel;
 using System.Text;
 using System.Windows;
@@ -23,7 +24,11 @@ namespace Store
             InitializeComponent();
             //DataContext = new MainVM();
             DataContext = new MainWindowVM();
+            ApplicationContext context = new ApplicationContext();
+            List<Suppliers> suppliers = context.GetSuppliers();
+            List<Rating> ratings = context.GetRatings();
         }
+
 
         //private void Log_Click(object sender, RoutedEventArgs e)
         //{

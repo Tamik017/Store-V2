@@ -1,4 +1,5 @@
-﻿using Store.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using Store.Model;
 using Store.Model.DTO;
 using Store.View;
 using System;
@@ -6,11 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Store.ViewModel
 {
     public class LoginVM : ObservableObject
     {
+        private ApplicationContext dbContext = new ApplicationContext();
         private LoginModel loginModel = new LoginModel();
         public RelayCommand LogCommand { get; }
         public LoginVM()
@@ -20,11 +23,21 @@ namespace Store.ViewModel
 
         public void login()
         {
-            Products productsWindow = new Products();
-            // Показываем новое окно
-            productsWindow.Show();
-            // Закрываем текущее окно
-            //App.Current.MainWindow.Close();
+            // Получаем из базы данных сотрудника с указанным email и паролем
+            var employee = dbContext._employees.FirstOrDefault(e => e.Email == LoginText && e.PasswordUser == PasswordText);
+
+            if (employee != null)
+            {
+                // Если сотрудник найден, открываем окно с продуктами и закрываем текущее окно
+                ProductsView productsWindow = new ProductsView();
+                productsWindow.Show();
+                //loginWindow.Close();
+            }
+            else
+            {
+                // Если сотрудник не найден, выводим сообщение об ошибке
+                MessageBox.Show("Ошибка в логине или пароле");
+            }
         }
 
         public string LoginText
@@ -33,9 +46,9 @@ namespace Store.ViewModel
             {
                 return loginModel.Login;
             }
-            set 
-            { 
-                loginModel.Login = value; 
+            set
+            {
+                loginModel.Login = value;
                 OnPropertyChanged(nameof(LoginText));
             }
         }

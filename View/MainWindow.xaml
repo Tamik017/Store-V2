@@ -25,14 +25,5 @@
         <Button Grid.Column="1" Content="Вход" HorizontalAlignment="Left" Margin="60,10,0,0" 
                     Grid.Row="1" VerticalAlignment="Top" Width="150" Height="50" FontSize="16"
                     Command="{Binding LogNavCommand}"/> <!--Click="Log_Click"-->
-
-        <ComboBox x:Name="combobox1">
-            <ComboBoxItem>
-                <TextBlock>dsadds</TextBlock>
-            </ComboBoxItem>
-            <ComboBoxItem>
-                <TextBlock>Fsdafe</TextBlock>
-            </ComboBoxItem>
-        </ComboBox>    
     </Grid>
 </Window>

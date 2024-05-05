@@ -1,4 +1,4 @@
-﻿<Window x:Class="Store.View.Products"
+﻿<Window x:Class="Store.View.ProductsView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,19 +7,18 @@
         mc:Ignorable="d"
         Title="Products" Height="450" Width="800">
     <Grid>
-        <DataGrid Margin="0,100,0,0">
+        <DataGrid Margin="0,100,0,0" ItemsSource="{Binding AdminProductsList}" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" MinWidth="60" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Навание товара" IsReadOnly="True" CanUserResize="False" Width="250" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Цена" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Адрес" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }" />
-                <DataGridTextColumn Header="ПВЗ" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Количество" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding }"/>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" MinWidth="60" Binding="{Binding Товар_ID}"/>
+                <DataGridTextColumn Header="Категория" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding Категория.Название}"/>
+                <DataGridTextColumn Header="Навание товара" IsReadOnly="True" CanUserResize="False" Width="250" Binding="{Binding Поставщик.Название}"/>
+                <DataGridTextColumn Header="Цена" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding Цена}"/>
+                <DataGridTextColumn Header="Рейтинг" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding Рейтинг}"/>
+                <DataGridTextColumn Header="Количество" IsReadOnly="False" CanUserResize="False" Width="*" Binding="{Binding Количество}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="TxtSearch" 
-                 HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" 
-                 VerticalAlignment="Top" Width="120" Height="30" 
+        <TextBox Name="TxtSearch" HorizontalAlignment="Left" Margin="10,55,0,0" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" 
                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
          
         <Button Content="Фильтр" HorizontalAlignment="Left" Margin="147,55,0,0" 
@@ -37,6 +36,9 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="252,55,0,0" 
+                VerticalAlignment="Top" Command="{Binding UpdateCommand}"
+                Width="100" Height="30" Background="White" />
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="5,29,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

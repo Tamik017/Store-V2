@@ -18,9 +18,9 @@ namespace Store.View
     /// <summary>
     /// Логика взаимодействия для Products.xaml
     /// </summary>
-    public partial class Products : Window
+    public partial class ProductsView : Window
     {
-        public Products()
+        public ProductsView()
         {
             InitializeComponent();
             DataContext = new ProductsVM();

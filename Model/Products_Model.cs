@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Store.Model
 {
-    public class PVZ
+    public class Products_Model
     {
-        public int pvz_ID {  get; set; }
-        public string pvz_Name { get; set; }
+        public List<Products> Products { get; set; }
     }
 }

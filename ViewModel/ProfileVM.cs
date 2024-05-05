@@ -10,7 +10,7 @@ namespace Store.ViewModel
 {
     public class ProfileVM : ObservableObject
     {
-        private PVZ pvzModel = new PVZ();
+        //private PVZ pvzModel = new PVZ();
         public RelayCommand ProductCommand { get; }
         public RelayCommand LogoutCommand { get; }
         public RelayCommand StatisticCommand { get; }
@@ -26,13 +26,13 @@ namespace Store.ViewModel
             AdminProfile = new RelayCommand(parameter => profileAdmin());
             ProductAdminCommand = new RelayCommand(parameter => productAdmin());
 
-            PVZ = "№ 1, 6";
+            //PVZ = "№ 1, 6";
             Current = "69";
         }
 
         public void product()
         {
-            Products productsWindow = new Products();
+            ProductsView productsWindow = new ProductsView();
             productsWindow.Show();
         }
 
