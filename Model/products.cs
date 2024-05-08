@@ -12,8 +12,10 @@ namespace Store.Model
     public class Products
     {
         [Key]
+        [Column("Товар_ID")]
         public int Товар_ID { get; set; }
 
+        [Column("Количество")]
         public int Количество {  get; set; }
         public decimal Цена {  get; set; }
         public double Рейтинг {  get; set; }

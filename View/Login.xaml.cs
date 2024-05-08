@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Store.View
 {
-    /// <summary>
-    /// Логика взаимодействия для Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
         public Login()
@@ -25,12 +22,5 @@ namespace Store.View
             InitializeComponent();
             DataContext = new LoginVM();
         }
-
-        //private void Loginbtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Products ProductWindow = new Products();
-        //    ProductWindow.Show();
-        //    this.Close();
-        //}
     }
 }

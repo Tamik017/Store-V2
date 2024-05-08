@@ -36,14 +36,29 @@ namespace Store
             return products;
         }
 
-        DbSet<Rating> _rating { get; set; }
+        public DbSet<Rating> _rating { get; set; }
         public List<Rating> GetRatings()
         {
             List<Rating> rating = _rating.ToList();
             return rating;
         }
 
+        public DbSet<Categories> _categories { get; set; }
+        public List<Categories> GetCategories()
+        {
+            List<Categories> categories = _categories.ToList();
+            return categories;
+        }
+
         public DbSet<Employees> _employees { get; set; }
+        public List<Employees> GetEmployees()
+        {
+            List<Employees> employees = _employees.ToList();
+
+            return employees;
+        }
+        public DbSet<Orders> _orders {  get; set; }
+        public DbSet<OrderElements> _orderElements { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

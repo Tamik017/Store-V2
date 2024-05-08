@@ -4,29 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store.View"
+        xmlns:vm="clr-namespace:Store.ViewModel"
         mc:Ignorable="d"
         Title="ProductsAdmin" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:ProductsVM/>
+    </Window.DataContext>
     <Grid>
-        <DataGrid Margin="0,100,0,0" ItemsSource="{Binding AdminProductsList}" AutoGenerateColumns="False" CanUserAddRows="True">
+        <DataGrid Margin="0,100,0,0" ItemsSource="{Binding AdminProductsList}" 
+                  AutoGenerateColumns="False" CanUserAddRows="True"
+                  x:Name="mydatagrid1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" IsReadOnly="False" CanUserResize="False" Width="auto" MinWidth="60" Binding="{Binding Товар_ID}"/>
+                <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" MinWidth="60" Binding="{Binding Товар_ID}"/>
                 <DataGridTextColumn Header="Категория" IsReadOnly="False" CanUserResize="False" Width="*" Binding="{Binding Категория.Название}"/>
                 <DataGridTextColumn Header="Навание товара" IsReadOnly="False" CanUserResize="False" Width="250" Binding="{Binding Поставщик.Название}"/>
                 <DataGridTextColumn Header="Цена" IsReadOnly="False" CanUserResize="False" Width="*" Binding="{Binding Цена}"/>
                 <DataGridTextColumn Header="Рейтинг" IsReadOnly="False" CanUserResize="False" Width="*" Binding="{Binding Рейтинг}"/>
                 <DataGridTextColumn Header="Количество" IsReadOnly="False" CanUserResize="False" Width="*" Binding="{Binding Количество}"/>
+                
             </DataGrid.Columns>
         </DataGrid>
         <TextBox Name="TxtSearch" HorizontalAlignment="Left" Margin="10,55,0,0" 
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" 
                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Content="Фильтр" HorizontalAlignment="Left" Margin="145,55,0,0" 
-                VerticalAlignment="Top" Command="{Binding FilterCommand}"
-                Width="100" Height="30" Background="White" />
+        <Button Content="☓"  HorizontalAlignment="Left" Margin="265,55,0,0" 
+                VerticalAlignment="Top" Command="{Binding ResetCommand}"
+                Width="40" Height="30" Background="White" RenderTransformOrigin="0.188,0.555" />
+        
+        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" 
+                  DisplayMemberPath="Название" SelectedValuePath="Категория_ID" HorizontalAlignment="Left"
+                  VerticalAlignment="Top" Margin="140,55,0,0" Width="120" Height="30"/>
+
         <Button Content="Я" HorizontalAlignment="Left" Margin="728,24,0,0" VerticalAlignment="Top" 
                 Height="52" Width="52" Command="{Binding ProfileAdminCommand}" 
                 FontSize="30" Background="White">
+            
             <!--Click="ButtonProfile"-->
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -37,13 +50,12 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Добавить товар" HorizontalAlignment="Left" Margin="257,55,0,0" 
+        <Button Content="Добавить товар" HorizontalAlignment="Left" Margin="320,55,0,0" 
                 VerticalAlignment="Top" Width="120" Height="30" Background="White" 
                 Command="{Binding AddCommand}"/>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="382,56,0,0" 
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="455,56,0,0" 
                 VerticalAlignment="Top" Width="120" Height="30" Background="White" 
                 Command="{Binding UpdateCommand}"/>
-
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="5,29,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

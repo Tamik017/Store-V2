@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Store.ViewModel"
         xmlns:local="clr-namespace:Store.View"
         mc:Ignorable="d"
         Title="Products" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:ProductsVM/>
+    </Window.DataContext>
     <Grid>
         <DataGrid Margin="0,100,0,0" ItemsSource="{Binding AdminProductsList}" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
@@ -20,13 +24,18 @@
         <TextBox Name="TxtSearch" HorizontalAlignment="Left" Margin="10,55,0,0" 
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" 
                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
-         
-        <Button Content="Фильтр" HorizontalAlignment="Left" Margin="147,55,0,0" 
-                VerticalAlignment="Top" Command="{Binding FilterCommand}"
-                Width="100" Height="30" Background="White" />
+
+        <Button Content="☓"  HorizontalAlignment="Left" Margin="265,55,0,0" 
+                VerticalAlignment="Top" Command="{Binding ResetCommand}"
+                Width="40" Height="30" Background="White" RenderTransformOrigin="0.188,0.555" />
+        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" 
+                  DisplayMemberPath="Название" SelectedValuePath="Категория_ID" HorizontalAlignment="Left"
+                  VerticalAlignment="Top" Margin="140,55,0,0" Width="120" Height="30"/>
+
         <Button Content="Я" HorizontalAlignment="Left" Margin="728,24,0,0" VerticalAlignment="Top" 
                 Height="52" Width="52" Command="{Binding ProfileCommand}" 
-                FontSize="30" Background="White"> <!--Click="ButtonProfile"-->
+                FontSize="30" Background="White">
+            
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="30" BorderBrush="{TemplateBinding BorderBrush}" 
@@ -36,7 +45,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="252,55,0,0" 
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="320,56,0,0" 
                 VerticalAlignment="Top" Command="{Binding UpdateCommand}"
                 Width="100" Height="30" Background="White" />
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="5,29,0,0" VerticalAlignment="Top"/>

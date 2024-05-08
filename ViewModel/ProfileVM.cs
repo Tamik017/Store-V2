@@ -1,68 +1,98 @@
-﻿using Store.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using Store.Model;
 using Store.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Store.ViewModel
 {
     public class ProfileVM : ObservableObject
     {
-        //private PVZ pvzModel = new PVZ();
         public RelayCommand ProductCommand { get; }
         public RelayCommand LogoutCommand { get; }
         public RelayCommand StatisticCommand { get; }
-        public RelayCommand SotrudnikProfile {  get; }
-        public RelayCommand AdminProfile { get; }
         public RelayCommand ProductAdminCommand { get; }
+
+        private int _currentEmployeeId;
         public ProfileVM()
         {
             ProductCommand = new RelayCommand(parameter => product());
             LogoutCommand = new RelayCommand(parameter => logout());
             StatisticCommand = new RelayCommand(parameter => statistic());
-            SotrudnikProfile = new RelayCommand(parameter => profileSotrudnik());
-            AdminProfile = new RelayCommand(parameter => profileAdmin());
             ProductAdminCommand = new RelayCommand(parameter => productAdmin());
 
-            //PVZ = "№ 1, 6";
-            Current = "69";
+            using (var context = new ApplicationContext())
+            {
+                Current = Convert.ToString(context._orders.Count());
+
+                var CurrentEmployeeId = 40;
+
+                var employee = context.Set<Employees>().FirstOrDefault(e => e.Сотрудник_ID == CurrentEmployeeId);
+                if (employee != null)
+                {
+                    var evaluation = context.Set<Rating>().FirstOrDefault(e => e.Оценка_ID == employee.Оценка_ID);
+                    if (evaluation != null)
+                    {
+                        PVZ = evaluation.Адресс_Оценки;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось найти оценку для сотрудника.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось найти сотрудника.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         public void product()
         {
             ProductsView productsWindow = new ProductsView();
+            productsWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             productsWindow.Show();
+            CloseCurrentWindow();
         }
 
         public void productAdmin()
         {
             ProductsAdmin productsAdminWindow = new ProductsAdmin();
+            productsAdminWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             productsAdminWindow.Show();
+            CloseCurrentWindow();
         }
 
         public void logout()
         {
             Login loginWindow = new Login();
+            loginWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             loginWindow.Show();
+            CloseCurrentWindow();
         }
 
         public void statistic()
         {
             Statistics statisticWindow = new Statistics();
+            statisticWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             statisticWindow.Show();
+            CloseCurrentWindow();
         }
 
-        public void profileAdmin()
+        private void CloseCurrentWindow()
         {
-            ProfileAdmin profileAdminWindow = new ProfileAdmin();
-            profileAdminWindow.Show();
-        }
-        public void profileSotrudnik()
-        {
-            Profile profileWindow = new Profile();
-            profileWindow.Show();
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this)
+                {
+                    window.Close();
+                    break;
+                }
+            }
         }
 
         private string _PVZ;

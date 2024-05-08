@@ -16,9 +16,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Store.View
 {
-    /// <summary>
-    /// Логика взаимодействия для Profile.xaml
-    /// </summary>
     public partial class Profile : Window
     {
         public Profile()
@@ -26,26 +23,5 @@ namespace Store.View
             InitializeComponent();
             DataContext = new ProfileVM();
         }
-
-        //private void ProductBtn(object sender, RoutedEventArgs e)
-        //{
-        //    Products ProductWindow = new Products();
-        //    ProductWindow.Show();
-        //    this.Close();
-        //}
-
-        //private void LogoutBtn(object sender, RoutedEventArgs e)
-        //{
-        //    Login LoginWindow = new Login();
-        //    LoginWindow.Show();
-        //    this.Close();
-        //}
-
-        //private void ProductAdminBtn(object sender, RoutedEventArgs e)
-        //{
-        //    ProfileAdmin AdmWindow = new ProfileAdmin();
-        //    AdmWindow.Show();
-        //    this.Close();
-        //}
     }
 }

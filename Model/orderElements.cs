@@ -13,8 +13,9 @@ namespace Store.Model
     public  class OrderElements
     {
         [Key]
-        public int Элементы_заказа_ID { get; set; }
-        public int Количесвто {  get; set; }
+        [Column("Элемент_заказа_ID")]
+        public int Элемент_заказа_ID { get; set; }
+        public int Количество {  get; set; }
         public int Заказ_ID {  get; set; }
         [ForeignKey(nameof(Заказ_ID))]
         public Orders Заказ {  get; set; }

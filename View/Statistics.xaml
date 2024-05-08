@@ -10,10 +10,16 @@
         <Label Content="Статистика" HorizontalAlignment="Left" Margin="362,43,0,0" VerticalAlignment="Top" Height="41" Width="99"/>
         <Button Content="Профиль" HorizontalAlignment="Left" Margin="715,43,0,0" 
                 VerticalAlignment="Top" Command="{Binding ProfileCommand}"
-                Width="70" Height="30" Background="White"/> <!--Click="Profil"-->
+                Width="70" Height="30" Background="White"/>
+        <!--Click="Profil"-->
         <Button Content="Товары" HorizontalAlignment="Left" Margin="715,97,0,0" 
                 VerticalAlignment="Top" Command="{Binding ProductCommand}"
-                Width="70" Height="30" Background="White "/> <!--Click="Prosucts"-->
+                Width="70" Height="30" Background="White "/>
+        <Label Content="Общая стоимость товаров" HorizontalAlignment="Left" Margin="41,112,0,0" VerticalAlignment="Top"/>
+        <Label Content="Расходы на зарпалту" HorizontalAlignment="Left" Margin="41,151,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding sumProduct}" HorizontalAlignment="Center" Margin="0,107,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding sumZP}" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top"/>
+        <!--Click="Prosucts"-->
 
     </Grid>
 </Window>

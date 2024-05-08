@@ -14,7 +14,13 @@ namespace Store.Model
         [Key]
         public int Заказ_ID { get; set; }
         public DateTime Дата_заказа { get; set; }
-        //public int Клиент_ID { get; set; }
-        //public int Оценка_Id { get; set; }
+
+        public int Клиент_ID { get; set; }
+        [ForeignKey(nameof(Клиент_ID))]
+        public Clients Клиент {  get; set; }
+
+        public int Оценка_Id { get; set; }
+        [ForeignKey(nameof(Оценка_Id))]
+        public Rating Оценка { get; set; }
     }
 }

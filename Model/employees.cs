@@ -18,6 +18,7 @@ namespace Store.Model
         public double Рейтинг { get; set; }
         public string Email { get; set; }
         public string PasswordUser { get; set; }
+        public string Роль {  get; set; }
         public int Оценка_ID { get; set; }
         [ForeignKey(nameof(Оценка_ID))]
         public Rating Оценка {  get; set; }

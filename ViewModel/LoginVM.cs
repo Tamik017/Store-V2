@@ -15,7 +15,21 @@ namespace Store.ViewModel
     {
         private ApplicationContext dbContext = new ApplicationContext();
         private LoginModel loginModel = new LoginModel();
+
+        // Добавляем свойство для хранения идентификатора текущего сотрудника
+        private int _currentEmployeeId;
+        public int CurrentEmployeeId
+        {
+            get { return _currentEmployeeId; }
+            set
+            {
+                _currentEmployeeId = value;
+                OnPropertyChanged(nameof(CurrentEmployeeId));
+            }
+        }
+
         public RelayCommand LogCommand { get; }
+
         public LoginVM()
         {
             LogCommand = new RelayCommand(parameter => login());
@@ -23,20 +37,42 @@ namespace Store.ViewModel
 
         public void login()
         {
-            // Получаем из базы данных сотрудника с указанным email и паролем
             var employee = dbContext._employees.FirstOrDefault(e => e.Email == LoginText && e.PasswordUser == PasswordText);
 
             if (employee != null)
             {
-                // Если сотрудник найден, открываем окно с продуктами и закрываем текущее окно
-                ProductsView productsWindow = new ProductsView();
-                productsWindow.Show();
-                //loginWindow.Close();
+                CurrentEmployeeId = employee.Сотрудник_ID;
+
+                if (employee.Роль == "employee")
+                {
+                    ProductsView productsWindow = new ProductsView();
+                    productsWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    productsWindow.Show();
+                    CloseCurrentWindow();
+                }
+                else if (employee.Роль == "admin")
+                {
+                    ProductsAdmin productsAdminWindow = new ProductsAdmin();
+                    productsAdminWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    productsAdminWindow.Show();
+                    CloseCurrentWindow();
+                }
             }
             else
             {
-                // Если сотрудник не найден, выводим сообщение об ошибке
                 MessageBox.Show("Ошибка в логине или пароле");
+            }
+        }
+
+        private void CloseCurrentWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this)
+                {
+                    window.Close();
+                    break;
+                }
             }
         }
 
